@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "displayName": "Reparent",
   "description": "Reparent GameObjects by typing a name instead of dragging them across a huge hierarchy. Fuzzy search, full paths, create-and-group, single-step undo.",
-  "unity": "6000.0",
+  "unity": "2022.3",
   "keywords": [
     "editor",
     "hierarchy",

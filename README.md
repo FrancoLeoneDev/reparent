@@ -61,7 +61,9 @@ Grouping never relocates anything. If you want the group at the scene root, grou
 
 ## Requirements
 
-**Unity 6000.0 or newer.** The picker uses UI Toolkit's `ListView`, whose current API landed in the 2022 cycle; older versions are not supported.
+**Unity 2022.3 LTS or newer.** Developed and tested on Unity 6.
+
+The picker uses UI Toolkit's `ListView`, whose current event API (`itemsChosen`, `selectionChanged`) landed in 2022.2 — which is what sets the floor. 2021.3 and older are not supported.
 
 ## Tests
 
