@@ -1,0 +1,13 @@
+# This repo is a Unity package, not a Unity project — there is no Library/ or Temp/
+# to ignore. Keep .meta files: Unity needs them for stable asset GUIDs.
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vs/
+*.user
+*.csproj
+*.sln
+*.slnx

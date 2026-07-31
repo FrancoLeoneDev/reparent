@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+
+  body {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    padding: 0 78px;
+    background:
+      radial-gradient(900px 620px at 82% 8%, rgba(94,200,255,.10), transparent 60%),
+      radial-gradient(700px 500px at 8% 96%, rgba(125,123,255,.08), transparent 60%),
+      linear-gradient(150deg, #16191e 0%, #0d0f12 100%);
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── left column ─────────────────────────────────────── */
+  .copy { width: 560px; flex: none; }
+
+  .rule {
+    width: 52px; height: 3px; border-radius: 2px;
+    background: linear-gradient(90deg, #5ec8ff, #7d7bff);
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 78px;
+    font-weight: 700;
+    letter-spacing: -2.5px;
+    line-height: 1;
+    color: #f3f6f9;
+    margin-bottom: 22px;
+  }
+
+  .tagline {
+    font-size: 23px;
+    line-height: 1.5;
+    color: #a7b0bc;
+    margin-bottom: 42px;
+  }
+  .tagline b { color: #e6ebf1; font-weight: 600; }
+
+  ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+
+  li {
+    font-size: 17.5px;
+    color: #8b95a2;
+    display: flex;
+    align-items: baseline;
+    gap: 13px;
+  }
+  li::before {
+    content: "";
+    width: 6px; height: 6px; flex: none;
+    border-radius: 50%;
+    background: #5ec8ff;
+    transform: translateY(-3px);
+  }
+  li code {
+    font-family: Consolas, Menlo, monospace;
+    font-size: 16px;
+    color: #dbe2ea;
+    background: rgba(255,255,255,.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  .foot {
+    margin-top: 46px;
+    font-family: Consolas, Menlo, monospace;
+    font-size: 15px;
+    color: #616a76;
+    letter-spacing: .3px;
+  }
+
+  /* ── picker mock ─────────────────────────────────────── */
+  .stage { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+  .picker {
+    width: 430px;
+    background: #272b31;
+    border: 1px solid #383d45;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 26px 60px rgba(0,0,0,.62);
+  }
+
+  .field {
+    height: 34px;
+    background: #1b1e23;
+    border: 1.5px solid #5ec8ff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 11px;
+    font-family: Consolas, Menlo, monospace;
+    font-size: 15px;
+    color: #e9eef4;
+    margin-bottom: 12px;
+  }
+  .caret {
+    width: 1.5px; height: 17px;
+    background: #e9eef4;
+    margin-left: 2px;
+  }
+
+  .row { padding: 8px 11px; border-radius: 5px; }
+  .row.sel { background: #33507a; }
+  .row .name { font-size: 15px; color: #f0f4f8; margin-bottom: 3px; }
+  .row .path { font-size: 11.5px; color: #93a8c6; }
+  .row.alt .name { color: #c3cbd5; }
+  .row.alt .path { color: #737d89; }
+
+  .sep { height: 1px; background: #383d45; margin: 12px 0 11px; }
+
+  .toggle { display: flex; align-items: center; gap: 9px; padding: 0 11px; }
+  .box {
+    width: 14px; height: 14px; flex: none;
+    border: 1px solid #4d545e;
+    border-radius: 3px;
+    background: #1b1e23;
+    position: relative;
+  }
+  .box::after {
+    content: "";
+    position: absolute; left: 3px; top: 3px;
+    width: 7px; height: 4px;
+    border-left: 2px solid #5ec8ff;
+    border-bottom: 2px solid #5ec8ff;
+    transform: rotate(-45deg);
+  }
+  .toggle span { font-size: 12.5px; color: #a7b0bc; }
+
+  .status { padding: 9px 11px 2px; font-size: 11.5px; color: #737d89; }
+
+  .pill {
+    font-family: Consolas, Menlo, monospace;
+    font-size: 14px;
+    color: #a7b0bc;
+    background: #1b1e23;
+    border: 1px solid #383d45;
+    border-radius: 999px;
+    padding: 8px 22px;
+    letter-spacing: .4px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="copy">
+    <div class="rule"></div>
+    <h1>Reparent</h1>
+    <p class="tagline">
+      Reparent GameObjects by <b>typing a name</b>, instead of dragging them across a huge hierarchy.
+    </p>
+    <ul>
+      <li>Fuzzy search — <code>mscm</code> finds <code>Mesa_Comedor</code></li>
+      <li>Full hierarchy path on every result</li>
+      <li>Create a parent and group in one step</li>
+      <li>One undo, however many objects you moved</li>
+    </ul>
+    <p class="foot">UNITY EDITOR TOOL · MIT</p>
+  </div>
+
+  <div class="stage">
+    <div class="picker">
+      <div class="field">mscm<span class="caret"></span></div>
+
+      <div class="row sel">
+        <div class="name">Mesa_Comedor</div>
+        <div class="path">Casa/PlantaBaja/Comedor</div>
+      </div>
+
+      <div class="row alt">
+        <div class="name">+ Create "mscm" and group</div>
+        <div class="path">in Comedor</div>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="toggle"><div class="box"></div><span>Keep world position</span></div>
+      <div class="status">1 object → Mesa_Comedor</div>
+    </div>
+
+    <div class="pill">Ctrl + Shift + H</div>
+  </div>
+
+</body>
+</html>

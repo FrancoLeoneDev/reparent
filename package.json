@@ -1,0 +1,19 @@
+{
+  "name": "com.noctis.reparent",
+  "version": "1.0.0",
+  "displayName": "Reparent",
+  "description": "Reparent GameObjects by typing a name instead of dragging them across a huge hierarchy. Fuzzy search, full paths, create-and-group, single-step undo.",
+  "unity": "6000.0",
+  "keywords": [
+    "editor",
+    "hierarchy",
+    "workflow",
+    "tools",
+    "productivity"
+  ],
+  "author": {
+    "name": "Franco Leone",
+    "url": "https://github.com/FrancoLeoneDev"
+  },
+  "license": "MIT"
+}
